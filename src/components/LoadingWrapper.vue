@@ -3,7 +3,11 @@
     <div v-if="isLoading" class="loader">
       <Spinner appearance="dark" />
     </div>
-    <div v-if="isSuccess" :class="['element', { isLoading }]" class="w-full">
+    <div
+      v-if="shouldShowContent"
+      :class="['element', { isLoading }]"
+      class="w-full"
+    >
       <slot />
     </div>
     <div v-if="isFailure">
@@ -19,21 +23,24 @@ import {
   LOADING,
   SUCCESS,
   FAILURE,
-  statusValidator,
+  statusValidator
 } from "@/core/machines/apiMachine";
 
 export default {
   components: {
-    Spinner,
+    Spinner
   },
   props: {
     status: {
       type: String,
       required: true,
-      validator: statusValidator,
-    },
+      validator: statusValidator
+    }
   },
   computed: {
+    shouldShowContent() {
+      return this.isSuccess || this.isIdle;
+    },
     isIdle() {
       return this.status === IDLE;
     },
@@ -45,8 +52,8 @@ export default {
     },
     isFailure() {
       return this.status === FAILURE;
-    },
-  },
+    }
+  }
 };
 </script>
 

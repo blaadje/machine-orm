@@ -11,6 +11,10 @@ export const SUCCESS = "success";
 export const FAILURE = "failure";
 
 export default Machine({
+  context: {
+    data: undefined,
+    error: undefined
+  },
   initial: IDLE,
   states: {
     [IDLE]: {
@@ -37,7 +41,11 @@ export default Machine({
     },
     [SUCCESS]: {
       entry: "notifySuccess",
-      type: "final"
+      after: {
+        2000: {
+          target: IDLE
+        }
+      }
     },
     [FAILURE]: {
       on: {
