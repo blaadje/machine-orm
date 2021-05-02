@@ -1,5 +1,5 @@
 <script>
-import { computed } from "vue";
+import { computed, onMounted } from "vue";
 import { usePostManager } from ".";
 import PostModel from "@/core/models/Post";
 import LoadingWrapper from "@/components/LoadingWrapper";

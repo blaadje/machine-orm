@@ -4,12 +4,6 @@ import { useMachine } from "@xstate/vue";
 import toggleMachine from "@/core/machines/toggleMachine";
 
 export default {
-  props: {
-    post: {
-      type: Object,
-      required: true
-    }
-  },
   setup(props, { slots }) {
     const { state, send } = useMachine(toggleMachine);
     const shouldShowContent = computed(() => state.value.matches("active"));
