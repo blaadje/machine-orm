@@ -7,14 +7,14 @@ export const getPosts = () => {
   return request({ method: "GET", url: createUrl });
 };
 
-export const updatePost = (post) => {
-  const createUrl = POSTS_BASE_URL.clone().toString();
+export const updatePost = ({ id, updatedPost }) => {
+  const createUrl = POSTS_BASE_URL.clone().segment(`${id}`).toString();
 
-  return request({ method: "GET", url: createUrl, body: post });
+  return request({ method: "PUT", url: createUrl, body: updatedPost });
 };
 
-export const deletePost = (postId) => {
-  const createUrl = POSTS_BASE_URL.clone().segment(`${postId}`).toString();
+export const deletePost = ({ id }) => {
+  const createUrl = POSTS_BASE_URL.clone().segment(`${id}`).toString();
 
   return request({ method: "DELETE", url: createUrl });
 };

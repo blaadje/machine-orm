@@ -17,7 +17,7 @@ import {
   FAILURE,
   statusValidator,
 } from "@/core/machines/apiMachine";
-import Spinner from "./Spinner";
+import Spinner from "@/components/Spinner";
 
 export default {
   components: {

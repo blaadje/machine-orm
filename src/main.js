@@ -1,5 +1,5 @@
 import { createApp } from "vue";
-import App from "./App.vue";
+import App from "./components/App";
 import store from "@/core/store";
 
 const app = createApp(App);

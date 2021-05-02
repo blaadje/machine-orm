@@ -3,11 +3,7 @@
     <div v-if="isLoading" class="loader">
       <Spinner appearance="dark" />
     </div>
-    <div
-      v-if="shouldShowContent"
-      :class="['element', { isLoading }]"
-      class="w-full"
-    >
+    <div v-if="shouldShowContent" :class="['element', { isLoading }]">
       <slot />
     </div>
     <div v-if="isFailure">
@@ -17,7 +13,7 @@
 </template>
 
 <script>
-import Spinner from "./Spinner";
+import Spinner from "@/components/Spinner";
 import {
   IDLE,
   LOADING,
@@ -78,6 +74,7 @@ export default {
 }
 
 .element {
+  width: 100%;
   opacity: 1;
 }
 
