@@ -1,4 +1,3 @@
-
 <script>
 import { computed } from "vue";
 import PostModel from "@/core/models/Post";

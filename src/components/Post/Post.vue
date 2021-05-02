@@ -1,8 +1,5 @@
 <script>
-import { computed, onMounted } from "vue";
 import { usePostManager } from ".";
-import PostModel from "@/core/models/Post";
-import LoadingWrapper from "@/components/LoadingWrapper";
 import ButtonStatus from "@/components/ButtonStatus";
 import EditableText from "@/components/EditableText";
 import Dropdown from "@/components/Dropdown";
@@ -18,11 +15,11 @@ export default {
     const { deletePost, updatePost, deletePostState } = usePostManager({
       id: props.post.id
     });
+
     const handleDelete = (event) => {
       event.stopPropagation();
       deletePost();
     };
-
     const handleChange = (value) => {
       const updatedPost = {
         ...props.post,
