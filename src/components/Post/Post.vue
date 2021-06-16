@@ -1,5 +1,5 @@
 <script>
-import { usePostManager } from ".";
+import usePostManager from "@/core/hooks/usePostManager";
 import ButtonStatus from "@/components/ButtonStatus";
 import EditableText from "@/components/EditableText";
 import Dropdown from "@/components/Dropdown";

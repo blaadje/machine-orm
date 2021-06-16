@@ -1,6 +1,7 @@
 import PostModel from "@/core/models/Post";
 import { getPosts, updatePost, deletePost } from "@/core/endpoints";
 import useApiState from "@/core/hooks/useApiState";
+import { makeCall } from "@/core/utils";
 
 export default ({ id } = {}) => {
   const [
@@ -14,7 +15,8 @@ export default ({ id } = {}) => {
     updatePostAction
   ] = useApiState((context, event) => updatePost({ id, ...event }));
   const [onFetchPostsSuccess, fetchPostsState, fetchPostsAction] = useApiState(
-    getPosts
+    makeCall
+    // getPosts
   );
 
   onDeletePostSuccess(() => {
